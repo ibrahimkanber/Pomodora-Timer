@@ -14,6 +14,7 @@ class Pomodoro {
         this.mode="";
         this.interval;
         
+        
     }
 
     handleMode(event){
@@ -47,6 +48,8 @@ class Pomodoro {
         const sec=`${remainingTime.seconds}`.padStart(2,"0");
         minutes.textContent=min;
         seconds.textContent=sec;
+       
+        document.title=  `Time to Finish:${min}min ${sec}sec ${min<3 ? " just a little bit patient":"never ever give up"}` 
         console.log("hallooo111")
     }
     startTimer(){
@@ -108,3 +111,37 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 ////
+
+
+function disco() {
+	var x = Math.floor(Math.random() * 256);
+	var y = Math.floor(Math.random() * 256);
+	var z = Math.floor(Math.random() * 256);
+	var thergb = "rgb(" + x + "," + y + "," + z + ")"; 
+	document.body.style.background=thergb;
+}
+
+
+
+
+// var on=-1;
+// var ibo;
+// function change(){
+  
+//     on=on*-1;
+//     console.log(on)
+    
+//     if (on==1){
+//       ibo=setInterval(disco,100)
+
+//     }else if(on==-1){
+//       console.log("heloooo")
+//       clearInterval(ibo); 
+//     }
+// }
+
+
+// var deneme=document.querySelector(".disco")
+// deneme.addEventListener("click",change)
+
+// change();
