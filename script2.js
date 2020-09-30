@@ -2,6 +2,7 @@ const modeButtons = document.querySelectorAll(".btn");
 const minutes = document.querySelector(".minutes");
 const seconds = document.querySelector(".seconds");
 const startStop = document.querySelector(".start-stop");
+const container=document.querySelector(".main-container")
 
 class Pomodoro {
   constructor() {
@@ -18,10 +19,13 @@ class Pomodoro {
     const { mode } = event.target.dataset;
     this.changeMode(mode);
     if (this.mode == "pomodoro") {
+      container.style.backgroundColor="rgba(0,0,0,0.5)"
       document.body.style.backgroundColor = "rgba(233, 80, 80, 0.8)";
     } else if (this.mode == "longBreak") {
+      container.style.backgroundColor="rgba(0,0,0,0.5)"
       document.body.style.backgroundColor = "rgba(14, 117, 135,0.8)";
     } else {
+      container.style.backgroundColor="rgba(0,0,0,0.70)";
       document.body.style.backgroundColor = "rgba(91, 161, 50, 0.863)";
     }
 
@@ -49,7 +53,7 @@ class Pomodoro {
   
     const min = `${remainingTime.minutes}`.padStart(2, "0");
     const sec = `${remainingTime.seconds}`.padStart(2, "0");
-    minutes.textContent = min + ":";
+    minutes.textContent = min;
     seconds.textContent = sec;
 
     document.title = `just ${min}:${sec}--${

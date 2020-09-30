@@ -7,17 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="mode-container">
-        <button class="btn btn1" data-mode="pomodoro">25 dk</button>
-        <button class="btn btn2" data-mode="longBreak">15dk</button>
-        <button class="btn btn3" data-mode="shortBreak" >5dk</button>
-    </div>
-    <div class="time">
-        <div class="minutes"></div>
-        <div class="seconds"></div>
+    <div class="main-container">
+        <div class="mode-container">
+            <button class="btn btn1" data-mode="pomodoro">Pomodoro</button>
+            <button class="btn btn2" data-mode="longBreak">15min</button>
+            <button class="btn btn3" data-mode="shortBreak" >5min</button>
+        </div>
+        <div class="time">
+            <div class="minutes"></div>
+            <div>:</div>
+            <div class="seconds"></div>
+        </div>
+    
+       <button class="start-stop">start</button>
+
     </div>
 
-   <button class="start-stop">start</button>
 
 
     <script src="script2.js"></script>
