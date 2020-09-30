@@ -1,7 +1,7 @@
 const modeButtons = document.querySelectorAll(".btn");
 const minutes = document.querySelector(".minutes");
 const seconds = document.querySelector(".seconds");
-const start = document.querySelector(".start");
+const startStop = document.querySelector(".start-stop");
 
 class Pomodoro {
   constructor() {
@@ -18,11 +18,11 @@ class Pomodoro {
     const { mode } = event.target.dataset;
     this.changeMode(mode);
     if (this.mode == "pomodoro") {
-      document.body.style.backgroundColor = "green";
+      document.body.style.backgroundColor = "rgba(233, 80, 80, 0.8)";
     } else if (this.mode == "longBreak") {
-      document.body.style.backgroundColor = "yellow";
+      document.body.style.backgroundColor = "rgba(14, 117, 135,0.8)";
     } else {
-      document.body.style.backgroundColor = "red";
+      document.body.style.backgroundColor = "rgba(91, 161, 50, 0.863)";
     }
 
     this.stopTimer();
@@ -30,7 +30,6 @@ class Pomodoro {
 
   changeMode(mode) {
     this.mode = mode;
-    console.log(this.mode === "longBreak");
 
     this.remainingTime = {
       total: this[mode] * 60,
@@ -41,27 +40,27 @@ class Pomodoro {
     document
       .querySelector(`[data-mode="${this.mode}"]`)
       .classList.add("active");
-    console.log(this.remainingTime, this.mode);
+    
     this.updateClock();
   }
 
   updateClock() {
     const { remainingTime } = this;
-    console.log(remainingTime);
+  
     const min = `${remainingTime.minutes}`.padStart(2, "0");
     const sec = `${remainingTime.seconds}`.padStart(2, "0");
-    minutes.textContent = min;
+    minutes.textContent = min + ":";
     seconds.textContent = sec;
 
-    document.title = `Time to Finish:${min}min ${sec}sec ${
-      min < 3 ? " just a little bit patient" : "never ever give up"
+    document.title = `just ${min}:${sec}--${
+      min < 3 ? "a little bit of patience" : "never ever give up"
     }`;
-    console.log("hallooo111");
+   
   }
   startTimer() {
     let { total } = this.remainingTime;
     const endTime = Date.parse(new Date()) + total * 1000;
-    start.innerHTML = "stop";
+    startStop.innerHTML = "stop";
     this.interval = setInterval(() => {
       this.remainingTime = this.getRemainingTime(endTime);
       this.updateClock();
@@ -86,12 +85,8 @@ class Pomodoro {
 
   stopTimer() {
     clearInterval(this.interval);
-    start.innerHTML = "start";
+    startStop.innerHTML = "start";
   }
-
-  deneme = () => {
-    console.log("helooo");
-  };
 }
 
 let myPomodora = new Pomodoro();
@@ -107,8 +102,8 @@ modeButtons.forEach((button) => {
   });
 });
 
-start.addEventListener("click", () => {
-  if (start.innerHTML == "start") {
+startStop.addEventListener("click", () => {
+  if (startStop.innerHTML == "start") {
     myPomodora.startTimer();
   } else {
     myPomodora.stopTimer();

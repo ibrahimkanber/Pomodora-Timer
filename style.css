@@ -1,0 +1,35 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgba(233, 80, 80, 0.8);
+    transition: 300ms ease-in-out;
+
+}
+
+.mode-container{
+    height:5rem ;
+    border: 1px solid green;
+    color:rgba(91, 161, 50, 0.863)
+}
+
+.time{
+    display: flex;
+    place-items: center;
+    height:15rem ;
+    border: 1px solid green;
+    color:white;
+    font-size: 10rem;
+}
+
+
+button{
+    width:7rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+
